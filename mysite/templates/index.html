@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<main role="main">
+    <div class="jumbotron my-jumbotron mt-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <h1 class="nanumsquare">Welcome to</h1>
+                    <h1 class="display-2 nanumsquare" style="font-weight: bolder;">
+                        LJIN Labs
+                    </h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem natus, corrupti quas ipsa ad nostrum aspernatur repellat maiores esse nobis veniam quaerat? Non blanditiis ex vero delectus saepe architecto veniam eaque libero ratione. Doloribus enim, quam facilis aperiam quis dolorum.</p>
+                    <div class="btn btn-outline-secondary btn-lg">Learn More</div>
+                </div>
+                <div class="col-md-4">
+                    <img src="{% static 'img/logo.png' %}" alt="LJINLABS Logo" class="mt-5" style="width:100%;">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        {% for post in post_list %}
+        <div class="row mb-3">
+            <h2><a href="#">{{post.title}}</a></h2>
+            <hr>
+            <p><span>{{post.author}}</span>&nbsp;|&nbsp;<span>{{post.updated_on}}</span></p>
+            <p>{{post.content}}</p>
+            <div class="btn btn-primary btn-sm"><a href="#" style="text-decoration: none; color: white;">Read More</a></div>
+        </div>
+        {% endfor %}
+    </div>
+</main>
+{% endblock %}
+
