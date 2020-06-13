@@ -23,14 +23,14 @@
     <div class="container">
         {% for post in post_list %}
         <div class="row mb-3">
-            <h2><a href="#">{{post.title}}</a></h2>
+            <h2><a href="{% url 'post_detail' post.slug %}">{{post.title}}</a></h2>
             <hr>
             <p><span>{{post.author}}</span>&nbsp;|&nbsp;<span>{{post.updated_on}}</span></p>
             <p>{{post.content}}</p>
-            <div class="btn btn-primary btn-sm"><a href="#" style="text-decoration: none; color: white;">Read More</a></div>
+            <div class="btn btn-primary btn-sm"><a href="{% url 'post_detail' post.slug %}" style="text-decoration: none; color: white;">Read More&rarr;</a></div>
         </div>
         {% endfor %}
     </div>
 </main>
-{% endblock %}
+{% endblock content %}
 
